@@ -1,0 +1,7 @@
+{
+    "name": "federated-instance",
+    "type": "datalake",
+    "config": {
+       "dataLakeName": "FederatedDatabaseInstance0"
+     }
+  }
