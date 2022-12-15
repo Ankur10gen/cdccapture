@@ -36,4 +36,6 @@ exports = function pickAndDeliver(args) {
     {},
     { $set: { ts: nextMilestone }, $inc: { batch: "1" } }
   );
+
+  //test deploy on app service on commit
 };
