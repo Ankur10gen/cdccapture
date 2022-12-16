@@ -14,7 +14,8 @@ exports = async function pickAndDeliver(args) {
 
   var agg = [
     {
-      $match: { clusterTime: { $gte: prevMilestone.ts, $lte: nextMilestone } },
+      // $match: { clusterTime: { $gte: prevMilestone.ts, $lte: nextMilestone } },
+      $match: { clusterTime: { $gte: prevMilestone.ts } },
     },
     {
       $out: {
