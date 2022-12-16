@@ -34,7 +34,7 @@ exports = async function pickAndDeliver(args) {
 
   await milestoneColl.updateOne(
     {},
-    { $set: { ts: nextMilestone }, $inc: { batch: "1" } }
+    { $set: { ts: nextMilestone }, $inc: { batch: 1 } }
   );
 
   //test deploy on app service on commit
