@@ -2,6 +2,8 @@ import os
 import pymongo
 import config
 from bson.json_util import dumps
+from bson import timestamp
+from datetime import datetime
 
 source_client = pymongo.MongoClient(config.source_cluster_conn_string)
 dest_client = pymongo.MongoClient(config.dest_cluster_conn_string)
@@ -11,7 +13,9 @@ dest_client = pymongo.MongoClient(config.dest_cluster_conn_string)
 
 change_stream = source_client.watch()
 for change in change_stream:
-    print(dumps(change))
+    # print(dumps(change))
     change["namespace"] = change.pop("ns")
+    change["clusterTime"] = datetime.fromtimestamp(change["clusterTime"].time)
+    print(dumps(change))
     dest_client.persist.changestreams.insert_one(change)
     print('')  # for readability only

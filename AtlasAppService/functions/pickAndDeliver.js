@@ -6,16 +6,23 @@ exports = async function pickAndDeliver(args) {
 
   var milestoneColl = context.services
     .get("mongodb-atlas")
-    .db("federated")
+    .db("persist")
     .collection("milestone");
 
   var prevMilestone = milestoneColl.findOne({}, { ts: 1, batch: 1, _id: 0 });
-  var nextMilestone = prevMilestone.ts + 5 * 60 * 1000; //5 mins into ms
+  var nextMilestone = prevMilestone.ts.getTime() + 5 * 60 * 1000; //5 mins into ms
+
+  console.log(JSON.stringify(new Date(prevMilestone.ts.getTime())));
+  console.log(JSON.stringify(new Date(nextMilestone)));
 
   var agg = [
     {
-      // $match: { clusterTime: { $gte: prevMilestone.ts, $lte: nextMilestone } },
-      $match: { clusterTime: { $gte: prevMilestone.ts } },
+      $match: {
+        clusterTime: {
+          $gte: new Date(prevMilestone.ts),
+          $lte: new Date(nextMilestone),
+        },
+      },
     },
     {
       $out: {
@@ -35,7 +42,7 @@ exports = async function pickAndDeliver(args) {
 
   await milestoneColl.updateOne(
     {},
-    { $set: { ts: nextMilestone }, $inc: { batch: 1 } }
+    { $set: { ts: new Date(nextMilestone) }, $inc: { batch: 1 } }
   );
 
   //test deploy on app service on commit
