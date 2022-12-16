@@ -9,7 +9,10 @@ exports = async function pickAndDeliver(args) {
     .db("persist")
     .collection("milestone");
 
-  var prevMilestone = milestoneColl.findOne({}, { ts: 1, batch: 1, _id: 0 });
+  var prevMilestone = await milestoneColl.findOne(
+    {},
+    { ts: 1, batch: 1, _id: 0 }
+  );
   var nextMilestone = prevMilestone.ts.getTime() + 5 * 60 * 1000; //5 mins into ms
 
   console.log(JSON.stringify(new Date(prevMilestone.ts.getTime())));
