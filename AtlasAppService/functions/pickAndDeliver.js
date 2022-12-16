@@ -1,4 +1,4 @@
-exports = function pickAndDeliver(args) {
+exports = async function pickAndDeliver(args) {
   var sourceColl = context.services
     .get("federated-instance")
     .db("federated")
@@ -30,9 +30,9 @@ exports = function pickAndDeliver(args) {
     },
   ];
 
-  sourceColl.aggregate(agg, { background: true });
+  await sourceColl.aggregate(agg, { background: true });
 
-  milestoneColl.updateOne(
+  await milestoneColl.updateOne(
     {},
     { $set: { ts: nextMilestone }, $inc: { batch: "1" } }
   );
