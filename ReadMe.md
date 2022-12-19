@@ -33,3 +33,7 @@ Use Atlas Admin API
 - CreateExportSnapshot - Create a snapshot and export to S3 (Python)
 
 ---
+
+# Link to Blog
+
+https://ankurraina.medium.com/sync-mongodb-data-in-real-time-to-s3-without-aws-dms-72eaf7cf04e1
