@@ -22,7 +22,7 @@ exports = async function pickAndDeliver(args) {
     {
       $match: {
         clusterTime: {
-          $gte: new Date(prevMilestone.ts),
+          $gte: new Date(prevMilestone.ts.getTime()),
           $lte: new Date(nextMilestone),
         },
       },
@@ -50,5 +50,6 @@ exports = async function pickAndDeliver(args) {
 
   //test deploy on app service on commit
 
+  console.log(res);
   return res;
 };

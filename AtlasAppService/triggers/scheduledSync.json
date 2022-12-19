@@ -2,7 +2,7 @@
     "name": "scheduledSync",
     "type": "SCHEDULED",
     "config": {
-      "schedule": "*/5 * * * *"
+      "schedule": "*/1 * * * *"
     },
     "function_name": "pickAndDeliver",
     "disabled": false
