@@ -41,7 +41,7 @@ exports = async function pickAndDeliver(args) {
     },
   ];
 
-  await sourceColl.aggregate(agg, { background: true });
+  var res = await sourceColl.aggregate(agg, { background: true });
 
   await milestoneColl.updateOne(
     {},
@@ -49,4 +49,6 @@ exports = async function pickAndDeliver(args) {
   );
 
   //test deploy on app service on commit
+
+  return res;
 };

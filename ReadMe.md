@@ -1,3 +1,7 @@
+# Architecture
+
+![Architecture](DMSReplaceSystem.png)
+
 # Step 1: Start capturing change streams
 
 #### Create and deploy the change streams app watching all changes from the cluster and write them as documents to a separate cluster
