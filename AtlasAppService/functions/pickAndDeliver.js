@@ -50,6 +50,6 @@ exports = async function pickAndDeliver(args) {
 
   //test deploy on app service on commit
 
-  console.log(res);
+  console.log(JSON.stringify(res));
   return res;
 };
