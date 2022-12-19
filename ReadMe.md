@@ -22,6 +22,14 @@ Use Atlas Admin API
 
 # Repo Structure
 
-main.py - Change Streams Application (Python)
-AtlasAppService - Scheduled Trigger Application (JavaScript)
-CreateExportSnapshot - Create a snapshot and export to S3 (Python)
+- main.py - Change Streams Application (Python)
+
+---
+
+- AtlasAppService - Scheduled Trigger Application (JavaScript)
+
+---
+
+- CreateExportSnapshot - Create a snapshot and export to S3 (Python)
+
+---
