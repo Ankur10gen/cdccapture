@@ -27,7 +27,8 @@ for change in change_stream:
     change["namespace"] = change.pop("ns")
 
     # convert internal BSON timestamp to Date format
-    change["clusterTime"] = datetime.fromtimestamp(change["clusterTime"].time)
+    change["clusterTime"] = datetime.utcfromtimestamp(
+        change["clusterTime"].time)
 
     print(dumps(change))
 
