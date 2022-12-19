@@ -2,12 +2,20 @@
 
 ![Architecture](DMSReplaceSystem.png)
 
-# Step 1: Start capturing change streams
+# Steps
 
-#### Create and deploy the change streams app watching all changes from the cluster and write them as documents to a separate cluster
+## Step 1: Start capturing change streams
 
-# Step 2: Start moving change streams from Atlas Persistent store to the S3 bucket using Scheduled Triggers
+Create and deploy the change streams app watching all changes from the cluster and write them as documents to a separate cluster
 
-# Step 3: Capture a new backup snapshot
+## Step 2: Start moving these events to the S3 bucket
 
-# Step 4: Export Snapshot to S3
+Use Scheduled Triggers
+
+## Step 3: Capture a new backup snapshot
+
+Use Atlas Admin API
+
+## Step 4: Export Snapshot to S3
+
+Use Atlas Admin API
