@@ -98,7 +98,7 @@ export_backup_data = {
         }
     ],
     "exportBucketId": aws_bucket,
-    "snapshotId": "63a01df4f6d9f27a067d5b0b"}
+    "snapshotId": snapshot_id}
 res = requests.post(auth=auth, url=export_backup_url,
                     data=json.dumps(export_backup_data), headers=headers)
 print(res.json())
