@@ -19,3 +19,9 @@ Use Atlas Admin API
 ## Step 4: Export Snapshot to S3
 
 Use Atlas Admin API
+
+# Repo Structure
+
+main.py - Change Streams Application (Python)
+AtlasAppService - Scheduled Trigger Application (JavaScript)
+CreateExportSnapshot - Create a snapshot and export to S3 (Python)
